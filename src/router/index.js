@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 //import HomeView from '../views/HomeView.vue'
 import IntroView from '../views/IntroView.vue'
+// import Index from '@/components/MovieIndexPage'
+// import Show from '@/components/MovieShowPage'
 
 const routes = [
   {
@@ -20,7 +22,17 @@ const routes = [
     path: '/intro',
     name: 'intro',
     component: IntroView
-  }
+  },
+  // {
+  //  path: '/',
+  //  name: 'index',
+  //  component: Index
+  // },
+  // {
+  //  path: '/:id',
+  //  name: 'show',
+  //  component: Show
+  // }
 ]
 
 const router = createRouter({
