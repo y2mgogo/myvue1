@@ -54,7 +54,7 @@ import axios from 'axios';
 const emit = defineEmits(['child-click']);
 
 const career = ref('');
-const btnText = ref('Save');
+const btnText = ref('Save'); //버튼텍스트 초기화
 const dataType = '1';// 1:경력컨텐츠 2:자격컨텐츠 3:스킬컨텐츠
 
 let dialogType = 'I'; // I:입력 U:수정
@@ -65,7 +65,7 @@ let prevContent = '';
 
 let dialog = ref(false)
 
-//다이얼로그 오픈시 버튼텍스트 변경 저장:Save 수정:Modi
+//다이얼로그 오픈시 버튼텍스트 변경 저장:Save tnwj
 function btnTextChg() {
   btnText.value = 'Save';
 }
@@ -100,7 +100,7 @@ const submitData = async () => {
 
         if ( dialogType === 'I' ) {
             
-            const response = await axios.post('/regist', { // '/api/users'를 실제 엔드포인트 URL로 변경
+            const response = await axios.post('/regist', { // 저장
               career: career.value,
               dataType: dataType
             },{ headers : {
@@ -113,7 +113,7 @@ const submitData = async () => {
               alert('변경된 내용이 존재하지 않습니다.');
               return false;
             } else {
-              const response = await axios.post('/modify', { // '/api/users'를 실제 엔드포인트 URL로 변경
+              const response = await axios.post('/modify', { // 수정
                 career: career.value,
                 id: index,
                 dataType: dataType
@@ -127,8 +127,8 @@ const submitData = async () => {
 
         // 성공 시 폼 초기화 또는 다른 작업 수행
         career.value = '';
-        emit('child-click','1');
-        dialog.value = false;
+        emit('child-click','1'); // 부모 컨포넌트로 내려줄 데이터 값
+        dialog.value = false; // 정상 프로세스 수행시 다이얼로그 닫기
     }
     
   } catch (error) {

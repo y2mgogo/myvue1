@@ -97,17 +97,19 @@
   const childRef = ref(null);
   const childRef2 = ref(null);
   const childRef3 = ref(null);
-
+  //경력 컴포넌트 다이얼로그 열기
   function triggerChildDialog(content,id) {
     childRef.value.openDialog(content,id);
   }
+  //자격 컴포넌트 다이얼로그 열기
   function triggerChildDialog2(content,id) {
     childRef2.value.openDialog1(content,id);
   }
+  //스킬 컴포넌트 다이얼로그 열기
   function triggerChildDialog3(content,id) {
     childRef3.value.openDialog2(content,id);
   }
-
+  //데이터 삭제
   async function deleteData(content,id,type) {
     if ( id === '' || id === null || id === 'undefined' ) {
       alert('데이터 삭제 중 에러가 발생했습니다.');
@@ -124,12 +126,12 @@
           }});
           
           console.log('데이터 삭제 성공:', deleteResult.data);
-          if ( type === '1' ) {
+          if ( type === '1' ) { //경력 컨텐츠
             dataSearch1();
-          } else if ( type === '2' ) {
+          } else if ( type === '2' ) { // 자격 컨텐츠
             dataSearch2();
           } else {
-            dataSearch3();
+            dataSearch3(); //스킬 컨텐츠
           }
           //window.location.reload();
         } catch (error) {
@@ -147,11 +149,17 @@
   const handleChildClick = (dataFromChild) => {
     parentMessage.value = dataFromChild;
     console.log(parentMessage.value); // "자식으로부터 전달된 데이터"
+    // 자식으로부터 전달된 데이터가 경력컨텐츠이면
     if ( parentMessage.value === '1' ) {
+      // 경력컨텐츠 재조회
       dataSearch1();
+    // 자식으로부터 전달된 데이터가 자격컨텐츠이면
     } else if ( parentMessage.value === '2' ) {
+      // 자격컨텐츠 재조회
       dataSearch2();
+    // 자식으로부터 전달된 데이터가 스킬컨텐츠이면
     } else {
+      // 스킬컨텐츠 재조회
       dataSearch3();
     }
     //window.location.reload();
