@@ -64,6 +64,7 @@ let prevContent = ''
 let dialog2 = ref(false)
 function btnTextChg() {
     btnText.value = 'Save';
+    skill.value = '';
 }
 
 function openDialog2(content,id){

@@ -64,6 +64,7 @@ let prevContent = '';
 let dialog1 = ref(false)
 function btnTextChg() {
     btnText.value = 'Save';
+    qualify.value = '';
 }
 function openDialog1(contnet,id) {
     btnText.value = 'Modi';

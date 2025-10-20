@@ -68,6 +68,7 @@ let dialog = ref(false)
 //다이얼로그 오픈시 버튼텍스트 변경 저장:Save tnwj
 function btnTextChg() {
   btnText.value = 'Save';
+  career.value = '';
 }
 
 function openDialog(content,id) {
